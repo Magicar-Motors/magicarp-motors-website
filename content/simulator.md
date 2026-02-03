@@ -48,6 +48,8 @@ _NOTE: The 92 accord does have ABS, but does not have Traction Control. Run with
 - I can't hear any sound. Turn on the bluetooth dongle at the top right of the left desk -- it should auto connect.
 - The wheel isn't giving force feedback:
   - The wheel must be turned on (red, not yellow light on) at the base of the wheel bottom right side **before the game is booted**
+- All of the sudden, after a restart, when gassing, the gar goes backwards, the front suspension feels weird, and the wheels look _demented_. The wheel got uncalibrated and is sending crazy inputs to the sim. Fully exit the sim. Unplug the `4 prong` connector at the back holding the `tab`. Then re-plug it in. Press the wheel power button (get it to red again). Boot the sim.
+- The screen turned black and the computer fans spun up. GPU probably crashed, hold the power button on the top left of the PC for 10s. Let go, wait 5s, then press it again.
 
 # Paddle Shifting vs Stick Shifting
 - Sometimes when you boot the game with the shifter unplugged + `H shifter` disabled from the `Content Manager` tab, nothing works, and you're stuck in manual. At that point, try going to `Content Manager` and launch from there. We have found success in getting the wheel/peddles to detect and drive.
