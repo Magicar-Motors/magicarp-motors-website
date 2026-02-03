@@ -50,6 +50,10 @@ _NOTE: The 92 accord does have ABS, but does not have Traction Control. Run with
   - The wheel must be turned on (red, not yellow light on) at the base of the wheel bottom right side **before the game is booted**
 - All of the sudden, after a restart, when gassing, the gar goes backwards, the front suspension feels weird, and the wheels look _demented_. The wheel got uncalibrated and is sending crazy inputs to the sim. Fully exit the sim. Unplug the `4 prong` connector at the back holding the `tab`. Then re-plug it in. Press the wheel power button (get it to red again). Boot the sim.
 - The screen turned black and the computer fans spun up. GPU probably crashed, hold the power button on the top left of the PC for 10s. Let go, wait 5s, then press it again.
+- I crashed! Or money shifted! How can i reset the car?
+  - Hit `esc`, `restart session`
+- Suddenly the engine cut out but I didn't do anything wrong.
+  - Is there a `no gas indicator` in the top left? If so hit `esc`, `restart session`, hit the `wrench`, `load sc1` configuration, and then hit the `wheel` in the top left to restart your drive session.
 
 # Paddle Shifting vs Stick Shifting
 - Sometimes when you boot the game with the shifter unplugged + `H shifter` disabled from the `Content Manager` tab, nothing works, and you're stuck in manual. At that point, try going to `Content Manager` and launch from there. We have found success in getting the wheel/peddles to detect and drive.
