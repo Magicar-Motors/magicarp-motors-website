@@ -47,7 +47,10 @@ _NOTE: The 92 accord does have ABS, but does not have Traction Control. Run with
   - To fix this, change the weather of the race to `heavy clouds` this will have the rendering engine not think about reflections too much.
 - I can't hear any sound. Turn on the bluetooth dongle at the top right of the left desk -- it should auto connect.
 - The wheel isn't giving force feedback:
-  - The wheel must be turned on (yellow light on, not red) at the base of the wheel bottom right side **before the game is booted**
+  - The wheel must be turned on (red, not yellow light on) at the base of the wheel bottom right side **before the game is booted**
+
+# Paddle Shifting vs Stick Shifting
+- Sometimes when you boot the game with the shifter unplugged + `H shifter` disabled from the `Content Manager` tab, nothing works, and you're stuck in manual. At that point, try going to `Content Manager` and launch from there. We have found success in getting the wheel/peddles to detect and drive.
 
 # Install
 Must haves:
