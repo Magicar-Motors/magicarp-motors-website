@@ -10,8 +10,22 @@ title: Magicarp Motors
 - **Season 4:** was our come back evolution, and we really gave it everything. An all new manual car, jackets, telemetry, and a giant weekend party.
 - **Season 5:** To be announced :)
 
-# The Team
+# The Cars
 
+<div style="display: flex; align-items: center;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
+    <img src="images/200-avalon-line.JPG" style="width: 100%; display: block;">
+  </div>
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
+    <img src="images/201-accord-twin-peaks.jpg" style="width: 100%; display: block; margin-top: -44%; margin-bottom: -14%;">
+  </div>
+</div>
+<div style="display: flex; align-items: flex-start;">
+  <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1997 Toyota Avalon - Magicarp</div>
+  <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1992 Honda Accord - Gearados</div>
+</div>
+
+# The Team
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
