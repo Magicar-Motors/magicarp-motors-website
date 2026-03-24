@@ -1,5 +1,5 @@
 ---
-title: "Race Day and Assembly Photos"
+title: "2025.06.05 - Race and Build Photos"
 date: 2025-06-05
 tags:
   - photos
@@ -43,11 +43,11 @@ Some photos from race day and prep.
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/03-car-fast.JPG"
+    <img src="images/raceday/400-car-fast.JPG"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/05-leading-the-pack.jpg"
+    <img src="images/raceday/400-leading-the-pack.jpg"
          style="height: auto;">
   </div>
 </div>

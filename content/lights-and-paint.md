@@ -1,5 +1,5 @@
 ---
-title: "Lights and Paint"
+title: "2025.09.03 - Lights and Paint"
 date: 2025-09-03
 tags:
   - cosmetic
@@ -39,7 +39,6 @@ putting up the lights as a proof of concept</div>
 
 Figuring out how to hold on the EL wire was super hard. We eventually settled on using E6000, and it did hold during the race.
 
-
 ## Fish Construction
 
 <div style="display: flex; align-items: center;">
@@ -50,6 +49,8 @@ Figuring out how to hold on the EL wire was super hard. We eventually settled on
 </div>
 <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">
 the insulation foam fish core</div>
+
+At the heart, the fish is built from multiple layers of 1" insulation foam spray glued together. Then it is all wrapped in the duct-tape to prevent aero-loads from causing foam disintegration. Then at the bottom we have a sandwhich of 3mm plywood and aluminum angle, which allows 6mm threaded rod to clamp everything together.
 
 
 ## Lessons

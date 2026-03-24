@@ -1,5 +1,5 @@
 ---
-title: "Logistics and Operations"
+title: "2025.09.02 - Logistics and Operations"
 date: 2025-09-02
 tags:
   - race day

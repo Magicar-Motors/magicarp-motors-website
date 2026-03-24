@@ -1,5 +1,5 @@
 ---
-title: "Kill Switch"
+title: "2025.06.05 - Kill Switch"
 date: 2025-06-05
 tags:
   - electrical
