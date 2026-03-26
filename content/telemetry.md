@@ -6,6 +6,8 @@ tags:
   - guide
 ---
 
+# Introduction
+
 This is a two-part series talking about the telemetry system that Jacky and I built.
 
 Objective:
@@ -18,10 +20,15 @@ Requirements:
 
 - Multiple camera feeds with reliable video transmission
 - Driver inputs and engine state tapped from vehicle electrical harnesses
-- Reliable, and extensible, and cooked up for an OBD1 system
-- Built in 3 days.
+    - We are driving a car without OBD2, so we must tap many signals via analog sensing
+- Built in 3 days
 
-These objectives and requirements drove us build a custom solution. In the first part of this blog, we’ll talk about the hardware BOM and build out. In the second part we’ll talk about the software stack. In the third part we’ll talk about the live system performance as a whole.
+These objectives and requirements drove us build a custom solution. In the first part of this blog, we’ll talk about the hardware BOM and build out. In the second part we’ll talk about the software for live monitoring and in-post review.
+
+# Questions?
+If you are interested in installing this setup on your own race car, reach out to us on X at [@shihao_cao](https://x.com/shihao_cao). For a `$2000` donation to the team, we will hop on calls with you to help you get things setup until it works.
+
+# Design
 
 ## Hardware BOM
 
@@ -118,3 +125,144 @@ These objectives and requirements drove us build a custom solution. In the first
 ### Totals
 - Total cost: \~1850 for listed parts. **~$2000** when including random wires, resistors/diodes, butt joints, t splices, small wires, solder, perfboard, zipties, etc.
 - Total power: `~100W` max theoretical, in practice steady state power draw was likely closer to `20/30W maximum`
+
+## Telemetry Points
+
+<div style="overflow-x: auto;">
+<table style="min-width: 700px; border-collapse: collapse; width: 100%; font-size: 0.8em;">
+  <thead>
+    <tr>
+      <th style="white-space: nowrap; padding: 6px 12px; text-align: left;">Telemetry Point</th>
+      <th style="white-space: nowrap; padding: 6px 12px; text-align: left;">Sense Strategy</th>
+      <th style="white-space: nowrap; padding: 6px 12px; text-align: left;">Signal Type</th>
+      <th style="white-space: nowrap; padding: 6px 12px; text-align: left;">Arduino Pin</th>
+      <th style="padding: 6px 12px; text-align: left; min-width: 180px;">Sense Line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Video 1</td>
+      <td style="padding: 6px 12px;">Camera</td>
+      <td style="padding: 6px 12px;"><span style="background: #d3f5e3; color: #1a6640; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">Digital</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">—</td>
+      <td style="padding: 6px 12px;">—</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Video 2</td>
+      <td style="padding: 6px 12px;">Camera</td>
+      <td style="padding: 6px 12px;"><span style="background: #d3f5e3; color: #1a6640; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">Digital</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">—</td>
+      <td style="padding: 6px 12px;">—</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Brake Indicator</td>
+      <td style="padding: 6px 12px;">Binary yes/no voltage</td>
+      <td style="padding: 6px 12px;"><span style="background: #fef3c7; color: #92400e; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">12V divided down, 4.3X</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">A5</td>
+      <td style="padding: 6px 12px;">White/Green Brake Light Line</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Battery Voltage</td>
+      <td style="padding: 6px 12px;">Analog</td>
+      <td style="padding: 6px 12px;"><span style="background: #fef3c7; color: #92400e; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">12V divided down, 4.3X</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">A6</td>
+      <td style="padding: 6px 12px;">Tap off the PDB +12V bus</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Throttle Position</td>
+      <td style="padding: 6px 12px;">Calibrate 0–100</td>
+      <td style="padding: 6px 12px;"><span style="background: #fde8d0; color: #b85c00; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">5V analog</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">A9</td>
+      <td style="padding: 6px 12px;">D11 ECU D connector</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Engine Coolant Temp (T/W)</td>
+      <td style="padding: 6px 12px;">Lookup table</td>
+      <td style="padding: 6px 12px;"><span style="background: #fde8d0; color: #b85c00; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">5V analog</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">A8</td>
+      <td style="padding: 6px 12px;">D13 ECU D Connector</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">MAP</td>
+      <td style="padding: 6px 12px;">Lookup table</td>
+      <td style="padding: 6px 12px;"><span style="background: #fde8d0; color: #b85c00; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">5V analog</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">A10</td>
+      <td style="padding: 6px 12px;">D13 ECU D Connector</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">RPM (Tach)</td>
+      <td style="padding: 6px 12px;">Derive instantaneous pulses/sec</td>
+      <td style="padding: 6px 12px;"><span style="background: #d0e8fd; color: #0a4a8a; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">12V square wave → 5V</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">D19</td>
+      <td style="padding: 6px 12px;">A7 BLU Dash Connector</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">VSS</td>
+      <td style="padding: 6px 12px;">Derive instantaneous pulses/sec</td>
+      <td style="padding: 6px 12px;"><span style="background: #d0e8fd; color: #0a4a8a; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">12V square wave → 5V</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">D18</td>
+      <td style="padding: 6px 12px;">B10 ECU B Connector</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">GPS</td>
+      <td style="padding: 6px 12px;">Racebox</td>
+      <td style="padding: 6px 12px;"><span style="background: #d3f5e3; color: #1a6640; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">Digital</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">—</td>
+      <td style="padding: 6px 12px;">—</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Accel</td>
+      <td style="padding: 6px 12px;">Racebox</td>
+      <td style="padding: 6px 12px;"><span style="background: #d3f5e3; color: #1a6640; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">Digital</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">—</td>
+      <td style="padding: 6px 12px;">—</td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap; padding: 6px 12px;">Gyro</td>
+      <td style="padding: 6px 12px;">Racebox</td>
+      <td style="padding: 6px 12px;"><span style="background: #d3f5e3; color: #1a6640; border-radius: 4px; padding: 2px 8px; white-space: nowrap;">Digital</span></td>
+      <td style="white-space: nowrap; padding: 6px 12px;">—</td>
+      <td style="padding: 6px 12px;">—</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+## Telemetry System Design
+
+<div style="overflow: hidden; margin: 10px 5px;">
+  <a href="images/500-telemetry-block-diagram.jpg" target="_blank">
+    <img src="images/500-telemetry-block-diagram.jpg" style="width: 100%; display: block;">
+  </a>
+</div>
+<div style="text-align: center; font-style: italic;">Telemetry Block Diagram</div>
+
+### Design Considerations
+We had considered a Starlink Mini as vehicle data offload but decided against this because I was unsure if we would be in a garage. The line-of-sight requirements are tough.
+
+We has also considered running the stream on the vehicle, but this would have been very rough as the stream would have died if the telemetry computer restarted. So keeping that separate was a great choice.
+
+## Power
+
+<div style="overflow: hidden; margin: 10px 5px;">
+  <a href="images/501-onboard-power-diagram.png" target="_blank">
+    <img src="images/501-onboard-power-diagram.png" style="width: 100%; display: block;">
+  </a>
+</div>
+<div style="text-align: center; font-style: italic;">Onboard Power Diagram</div>
+
+### Power Considerations
+
+I had considered adding another secondary battery onboard, but descoped it at the time to make deadlines.
+
+At the race, we noticed two significant downsides:
+- You can deplete the vehicle battery while running telemetry which means we had to repeatedly hook up a battery charger while running telem only
+- Cranking the starter brings the `+12V rail below +10V` which browns out the computers. This meant stalling the car and restarting the car would necessitate a power cycle, very annoying.
+
+For the next iteration we plan to add a small auxiliary battery with:
+- a relay that switches off if the kill switch is switched to cut power to telemetry
+- diodes that prevent auxiliary battery from flowing to the `main electrical bus`
+
+## Driver Communication
+
+We ran driver communication completely parallel to telemtry. We would communicate with drivers via `discord` audio call. This meant that if the `telemetry` stack restarted, our `audio` communications persisted. This was very useful during `hotpits` when we shut off telemetry, or if we ever had to crank the starter on track.
