@@ -105,5 +105,5 @@ title: Magicarp Motors
 ## Contact Points
 
 - Shihao Cao, https://x.com/shihao_cao
-- Magicarp Motors IG https://www.instagram.com/
+- Magicarp Motors IG https://www.instagram.com/magicarpmotors
   - Give us a follow! We'll be racing again later in 2026.
