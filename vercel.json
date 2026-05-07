@@ -1,3 +1,10 @@
 {
-    "cleanUrls": true
+    "cleanUrls": true,
+    "redirects": [
+        {
+            "source": "/sponsorship",
+            "destination": "/Magicarp_Motors_Sponsorship_2026.pdf",
+            "permanent": false
+        }
+    ]
 }
