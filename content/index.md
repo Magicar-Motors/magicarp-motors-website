@@ -1,5 +1,5 @@
 ---
-title: Magicarp Motors
+title: Magicar Motors
 ---
 
 # Story
@@ -21,7 +21,7 @@ title: Magicarp Motors
   </div>
 </div>
 <div style="display: flex; align-items: flex-start;">
-  <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1997 Toyota Avalon - Magicarp</div>
+  <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1997 Toyota Avalon - Magicar</div>
   <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1992 Honda Accord - Gearados</div>
 </div>
 
@@ -75,7 +75,7 @@ title: Magicarp Motors
 
 ## Mission
 
-- Magicarp Motors is a team of friends making the most of life.
+- Magicar Motors is a team of friends making the most of life.
     - We are looking for sponsors who also believe in applying friendship and engineering to do something awesome.
 
 ## Process
@@ -105,5 +105,5 @@ title: Magicarp Motors
 ## Contact Points
 
 - Shihao Cao, https://x.com/shihao_cao
-- Magicarp Motors IG https://www.instagram.com/magicarpmotors
+- Magicar Motors IG https://www.instagram.com/magicarmotors
   - Give us a follow! We'll be racing again later in 2026.
