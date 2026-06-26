@@ -21,7 +21,7 @@ title: Magicar Motors
   </div>
 </div>
 <div style="display: flex; align-items: flex-start;">
-  <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1997 Toyota Avalon - Magicar</div>
+  <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1997 Toyota Avalon - Magicarp</div>
   <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">1992 Honda Accord - Gearados</div>
 </div>
 
