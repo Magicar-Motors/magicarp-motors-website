@@ -54,12 +54,12 @@ title: Magicar Motors
 </div>
 
 # Race Results
-<div style="display: flex; align-items: flex-start;">
-  <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/100-race-result-th.jpg" style="height: auto;">
+<div style="display: flex; align-items: stretch;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 4/3;">
+    <img src="images/100-race-result-th.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
-  <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/102-race-result-arse-freeze.JPG" style="height: auto;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 4/3;">
+    <img src="images/102-race-result-arse-freeze.JPG" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
 </div>
 <div style="display: flex; align-items: flex-start;">
