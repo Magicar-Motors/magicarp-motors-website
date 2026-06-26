@@ -12,12 +12,12 @@ title: Magicar Motors
 
 # The Cars
 
-<div style="display: flex; align-items: center;">
-  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
-    <img src="images/200-avalon-line.JPG" style="width: 100%; display: block;">
+<div style="display: flex; align-items: stretch;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 3/2;">
+    <img src="images/200-avalon-line.JPG" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
-  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
-    <img src="images/201-accord-twin-peaks.jpg" style="width: 100%; display: block; margin-top: -44%; margin-bottom: -14%;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 3/2;">
+    <img src="images/202-accord-track.jpeg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
 </div>
 <div style="display: flex; align-items: flex-start;">
@@ -27,12 +27,12 @@ title: Magicar Motors
 
 # The Team
 
-<div style="display: flex; align-items: center;">
-  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
-    <img src="images/300-night.png" style="width: 100%; display: block;">
+<div style="display: flex; align-items: stretch;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 4/3;">
+    <img src="images/300-night.png" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
-  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
-    <img src="images/301-team-meeting.jpg" style="width: 100%; display: block; margin-top: -29%; margin-bottom: -29%;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 4/3;">
+    <img src="images/301-team-meeting.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
 </div>
 <div style="display: flex; align-items: flex-start;">
@@ -40,12 +40,12 @@ title: Magicar Motors
   <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">team meetings on the front porch w burritos</div>
 </div>
 
-<div style="display: flex; align-items: center;">
-  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
-    <img src="images/302-working.jpg" style="width: 100%; display: block; margin-top: -29%; margin-bottom: -29%;">
+<div style="display: flex; align-items: stretch;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 4/3;">
+    <img src="images/302-working.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
-  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px;">
-    <img src="images/303-painting-sidewalk.jpg" style="width: 100%; display: block;">
+  <div style="flex: 1; overflow: hidden; max-width: 100%; margin: 0 5px; border-radius: 8px; aspect-ratio: 4/3;">
+    <img src="images/303-painting-sidewalk.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
 </div>
 <div style="display: flex; align-items: flex-start;">
@@ -66,8 +66,8 @@ title: Magicar Motors
   <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">2025.06.01 - 25:01 Thunderhill - Judge's Choice</div>
   <div style="flex: 1; display: flex; text-align: center; justify-content: center; font-style: italic;">2026.12.12 - Arse-Freeze-Apalooza 2025 - DNF</div>
 </div>
-<div style="overflow: hidden; margin: 10px 5px;">
-  <img src="images/101-race-result-sonoma-26.jpeg" style="width: 100%; display: block; margin-top: -15%; margin-bottom: -10%;">
+<div style="overflow: hidden; margin: 10px 5px; aspect-ratio: 3/2; border-radius: 8px;">
+  <img src="images/103-race-result-sears-pointless.JPG" style="width: 100%; height: 100%; object-fit: cover; display: block;">
 </div>
 <div style="text-align: center; font-style: italic;">2026.03.22 - Sears Pointless - Heroic Fix</div>
 
