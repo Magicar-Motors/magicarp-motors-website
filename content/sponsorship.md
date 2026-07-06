@@ -1,0 +1,7 @@
+---
+title: "Sponsorship"
+---
+
+# Sponsorship
+
+*Content coming soon — why and how to sponsor Magicar Motors.*

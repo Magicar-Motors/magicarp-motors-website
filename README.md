@@ -7,3 +7,8 @@ A public repository to document what we've learned as a team and to publish it.
 nvm use node
 npx quartz build --serve
 ```
+
+# Launch dev:
+```
+. dev.sh
+```

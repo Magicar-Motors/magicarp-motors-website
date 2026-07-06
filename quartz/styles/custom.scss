@@ -1,3 +1,253 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+$landing-nav-height: 4.5rem;
+
+// ===== Full-bleed photo landing homepage (index.md only) =====
+// Scoped via body[data-slug="index"] — every page's <body> already carries
+// data-slug (see quartz/components/renderPage.tsx), kept correct across SPA
+// navigations by micromorph (it patches document.body's own attributes),
+// and already relied on elsewhere (explorer.inline.ts reads it to highlight
+// the active file). This selector out-specifies base.scss's grid/width
+// rules at every breakpoint, so no !important is needed anywhere below.
+
+body[data-slug="index"] {
+  // body itself (not a fixed overlay) is the scroll container: #quartz-body's
+  // direct children get `transform: translate(0px)` at <=800px width (see
+  // quartz/components/styles/explorer.scss's mobile drawer-push rule) — even
+  // an identity transform creates a new containing block, so a
+  // `position: fixed` descendant of .center would size itself against
+  // .center's (collapsed) box instead of the viewport on mobile/tablet.
+  // Scoping the scroll/height to <body> itself sidesteps that entirely.
+  height: 100vh;
+  height: 100svh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  #quartz-body {
+    .sidebar.left,
+    .sidebar.right,
+    .page-header,
+    .page-footer,
+    hr,
+    footer {
+      display: none;
+    }
+
+    display: block;
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+    padding: 0;
+
+    .center {
+      max-width: none;
+      min-width: 0;
+      margin: 0;
+    }
+  }
+
+  .page {
+    max-width: none;
+    margin: 0;
+  }
+
+  .center > article {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.landing-stack {
+  background-color: var(--dark);
+  // Pulled up underneath the nav (see .landing-nav's matching negative
+  // margin) so the first photo starts at the true top of the viewport,
+  // with the nav floating as a translucent overlay on top of it, instead
+  // of the nav reserving its own opaque band above the photo.
+  margin-top: -$landing-nav-height;
+}
+
+// Sticky "frosted glass" nav bar over the photo stack. Uses position: sticky
+// (not fixed) deliberately — this lives inside .center's subtree, and
+// .center gets an identity transform on mobile/tablet widths (see note
+// above), which breaks position: fixed but does not affect sticky.
+.landing-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: $landing-nav-height;
+  padding: 0 2rem;
+  background-color: rgba(22, 22, 24, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.landing-nav-logo {
+  color: var(--light);
+  font-weight: $boldWeight;
+  font-size: 1.1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: var(--light);
+    font-weight: $normalWeight;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      color: var(--light) !important;
+    }
+  }
+}
+
+.landing-nav-toggle-checkbox {
+  display: none;
+}
+
+.landing-nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--light);
+  }
+}
+
+@media all and ($mobile) {
+  .landing-nav-toggle-label {
+    display: flex;
+  }
+
+  .landing-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: rgba(22, 22, 24, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: max-height 0.3s ease;
+
+    li {
+      padding: 1rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .landing-nav-toggle-checkbox:checked ~ .landing-nav-links {
+    max-height: 400px;
+  }
+}
+
+.landing-photo {
+  position: relative;
+  width: 100%;
+  height: 100vh; // fallback for browsers without svh support
+  height: 100svh; // avoids mobile browser chrome jump-scroll issue
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 0;
+    content-visibility: visible;
+  }
+}
+
+.landing-caption {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary);
+  color: var(--light);
+  box-sizing: border-box;
+  padding: 1.5rem 2rem;
+
+  p {
+    color: var(--light);
+    margin: 0;
+    font-size: clamp(1rem, 1.1vw + 0.7rem, 1.5rem);
+    line-height: 1.5;
+  }
+
+  // ~15% of the photo's area, pinned to an edge, per photo.
+  &--right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    min-width: 260px;
+  }
+
+  &--left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 30%;
+    min-width: 260px;
+  }
+
+  &--bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 22%;
+    min-height: 140px;
+  }
+
+  @media all and ($mobile) {
+    width: 100% !important;
+    height: 30% !important;
+    min-width: 0;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
