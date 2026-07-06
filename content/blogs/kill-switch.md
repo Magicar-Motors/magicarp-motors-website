@@ -26,7 +26,7 @@ These two links helped me figure out how to wire things
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/kill-switch/kill-switch-half-wired.jpg"
+    <img src="../images/kill-switch/kill-switch-half-wired.jpg"
          style="height: auto; max-width: 60%;">
   </div>
 </div>
@@ -43,11 +43,11 @@ These two links helped me figure out how to wire things
 ## More Photos
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/kill-switch/01-wiring-at-ignition.jpg"
+    <img src="../images/kill-switch/01-wiring-at-ignition.jpg"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/kill-switch/02-back-of-ks.jpg"
+    <img src="../images/kill-switch/02-back-of-ks.jpg"
          style="height: auto;">
   </div>
 </div>

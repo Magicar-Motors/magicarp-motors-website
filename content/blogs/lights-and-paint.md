@@ -12,11 +12,11 @@ Direct acrylic actually works way better than you might expect, especially if yo
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/cosmetic/cosmetic-paint-1.jpg"
+    <img src="../images/cosmetic/cosmetic-paint-1.jpg"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/cosmetic/cosmetic-paint-2.jpg"
+    <img src="../images/cosmetic/cosmetic-paint-2.jpg"
          style="height: auto;">
   </div>
 </div>
@@ -30,7 +30,7 @@ Direct acrylic actually works way better than you might expect, especially if yo
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/cosmetic/cosmetic-lighting-1.jpg"
+    <img src="../images/cosmetic/cosmetic-lighting-1.jpg"
          style="height: auto; max-width: 40%;">
   </div>
 </div>
@@ -43,7 +43,7 @@ Figuring out how to hold on the EL wire was super hard. We eventually settled on
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/cosmetic/cosmetic-fish1.jpg"
+    <img src="../images/cosmetic/cosmetic-fish1.jpg"
          style="height: auto; max-width: 40%;">
   </div>
 </div>

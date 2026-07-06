@@ -21,26 +21,34 @@ title: Magicar Motors
 
 <div class="landing-stack">
 
-<section class="landing-photo">
-  <img src="images/202-accord-track.jpeg" alt="Our Honda Accord racing on track">
-  <div class="landing-caption landing-caption--right">
-    <p>Season 2 put a bone-stock beater on track for the first time — and we've been chasing that feeling ever since.</p>
+<div class="landing-section landing-section--w62">
+  <div class="landing-photo landing-photo--crop" style="--crop-top: 20; --crop-bottom: 10;">
+    <img src="images/303-painting-sidewalk.jpg" alt="Team members painting the car livery on a sidewalk">
   </div>
-</section>
+  <p class="landing-caption">We're a bunch of friends building race cars after work.</p>
+</div>
 
-<section class="landing-photo">
-  <img src="images/303-painting-sidewalk.jpg" alt="Team members painting the car livery on a sidewalk">
-  <div class="landing-caption landing-caption--left">
-    <p>Every livery, weld, and wire is done by us — a team of friends who'd rather build something together than buy it.</p>
+<div class="landing-section landing-section--w58">
+  <div class="landing-photo">
+    <img src="images/103-race-result-sears-pointless.JPG" alt="Our car racing at Sears Pointless">
   </div>
-</section>
+  <p class="landing-caption">We're a big silly happy family.</p>
+</div>
 
-<section class="landing-photo">
-  <img src="images/team-photo-2.jpg" alt="Magicar Motors team group photo">
-  <div class="landing-caption landing-caption--bottom">
-    <p>Magicar Motors: engineers and friends racing cheap cars, chasing good times, and always looking for the next sponsor to join the ride.</p>
+<div class="landing-section landing-section--w70">
+  <div class="landing-photo">
+    <img src="images/202-accord-track.jpeg" alt="Our Honda Accord racing on track">
   </div>
-</section>
+  <p class="landing-caption">The accord on track -- (replace with the collage?)</p>
+</div>
+
+
+<div class="landing-section landing-section--w55">
+  <div class="landing-photo">
+    <img src="images/team-photo-2.jpg" alt="Magicar Motors team group photo">
+  </div>
+  <p class="landing-caption">replace this photo with more family vibe photos</p>
+</div>
 
 </div>
 

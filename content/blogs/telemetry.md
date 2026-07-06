@@ -231,8 +231,8 @@ If you are interested in installing this setup on your own race car, reach out t
 ## Telemetry System Design
 
 <div style="overflow: hidden; margin: 10px 5px;">
-  <a href="images/500-telemetry-block-diagram.jpg" target="_blank">
-    <img src="images/500-telemetry-block-diagram.jpg" style="width: 100%; display: block;">
+  <a href="../images/500-telemetry-block-diagram.jpg" target="_blank">
+    <img src="../images/500-telemetry-block-diagram.jpg" style="width: 100%; display: block;">
   </a>
 </div>
 <div style="text-align: center; font-style: italic;">Telemetry Block Diagram</div>
@@ -245,8 +245,8 @@ We has also considered running the stream on the vehicle, but this would have be
 ## Power
 
 <div style="overflow: hidden; margin: 10px 5px;">
-  <a href="images/501-onboard-power-diagram.png" target="_blank">
-    <img src="images/501-onboard-power-diagram.png" style="width: 100%; display: block;">
+  <a href="../images/501-onboard-power-diagram.png" target="_blank">
+    <img src="../images/501-onboard-power-diagram.png" style="width: 100%; display: block;">
   </a>
 </div>
 <div style="text-align: center; font-style: italic;">Onboard Power Diagram</div>

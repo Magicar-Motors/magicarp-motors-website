@@ -13,11 +13,11 @@ Some photos from race day and prep.
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/prep-01-garage.jpg"
+    <img src="../images/raceday/prep-01-garage.jpg"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/prep-02-packing.jpg"
+    <img src="../images/raceday/prep-02-packing.jpg"
          style="height: auto;">
   </div>
 </div>
@@ -28,11 +28,11 @@ Some photos from race day and prep.
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/02-driver-briefing.JPG"
+    <img src="../images/raceday/02-driver-briefing.JPG"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/01-car-track.jpg"
+    <img src="../images/raceday/01-car-track.jpg"
          style="height: auto;">
   </div>
 </div>
@@ -43,11 +43,11 @@ Some photos from race day and prep.
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/400-car-fast.JPG"
+    <img src="../images/raceday/400-car-fast.JPG"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/400-leading-the-pack.jpg"
+    <img src="../images/raceday/400-leading-the-pack.jpg"
          style="height: auto;">
   </div>
 </div>
@@ -58,11 +58,11 @@ Some photos from race day and prep.
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/06-leading-the-pack-2.jpg"
+    <img src="../images/raceday/06-leading-the-pack-2.jpg"
          style="height: auto; max-width: 100%;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/04-car-night-trails.jpg"
+    <img src="../images/raceday/04-car-night-trails.jpg"
          style="height: auto; max-width: 60%;">
   </div>
 </div>
@@ -79,7 +79,7 @@ Some photos from race day and prep.
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/as-01-tie-rod.jpg"
+    <img src="../images/raceday/as-01-tie-rod.jpg"
          style="height: auto; max-width: 50%;">
   </div>
 </div>
@@ -94,7 +94,7 @@ the body frame, if we crouched down hard enough to touch the tubes to the track 
 absolutely torn up these lines.
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/as-02-transcooler.jpg"
+    <img src="../images/raceday/as-02-transcooler.jpg"
          style="height: auto; max-width: 50%;">
   </div>
 </div>
@@ -105,11 +105,11 @@ transcooler do not do</div>
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/cm-01-fish-prep.jpg"
+    <img src="../images/raceday/cm-01-fish-prep.jpg"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/cm-02-paint.jpg"
+    <img src="../images/raceday/cm-02-paint.jpg"
          style="height: auto;">
   </div>
 </div>
@@ -122,11 +122,11 @@ transcooler do not do</div>
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/rc-01-grinding.jpg"
+    <img src="../images/raceday/rc-01-grinding.jpg"
          style="height: auto;">
   </div>
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/rc-02-result.jpg"
+    <img src="../images/raceday/rc-02-result.jpg"
          style="height: auto;">
   </div>
 </div>
@@ -137,7 +137,7 @@ transcooler do not do</div>
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1; display: flex; justify-content: center; max-width: 100%; margin: 0 5px;">
-    <img src="images/raceday/rc-03-strip-prep.jpg"
+    <img src="../images/raceday/rc-03-strip-prep.jpg"
          style="height: auto; max-width: 50%;">
   </div>
 </div>
