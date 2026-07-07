@@ -1,0 +1,10 @@
+{
+  "name": "quartz-shim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Compatibility shim: forwards `quartz build` to the Vite build.",
+  "bin": {
+    "quartz": "./quartz.mjs"
+  }
+}

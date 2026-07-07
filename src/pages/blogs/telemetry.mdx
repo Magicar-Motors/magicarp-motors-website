@@ -1,0 +1,254 @@
+---
+title: 2026.03.25 - Telemetry
+date: 2026.03.25
+tags:
+  - telemetry
+  - guide
+---
+
+# Introduction
+
+This is a two-part series talking about the telemetry system that Jacky and I built.
+
+Objective:
+
+- Build a live telemetry system so that home base and spectators can follow along with what the driver is seeing real time
+- Build a review system so that drivers can review and improve their on track performance
+- Build a system for to relay car state so that mechanics and technicans can track realtime
+
+Requirements:
+
+- Multiple camera feeds with reliable video transmission
+- Driver inputs and engine state tapped from vehicle electrical harnesses
+    - We are driving a car without OBD2, so we must tap many signals via analog sensing
+- Built in 3 days
+
+These objectives and requirements drove us build a custom solution. In the first part of this blog, we'll talk about the hardware BOM and build out. In the second part we'll talk about the software for live monitoring and in-post review.
+
+# Questions?
+If you are interested in installing this setup on your own race car, reach out to us on X at [@shihao_cao](https://x.com/shihao_cao). For a `$2000` donation to the team, we will hop on calls with you to help you get things setup until it works.
+
+# Design
+
+## Hardware BOM
+
+<DataTable minWidth={900}>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Model</th>
+      <th>Specs</th>
+      <th>Power</th>
+      <th>Cost</th>
+      <th>Category</th>
+      <th className="wrap">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Forward Wide Camera</td>
+      <td><a href="https://www.amazon.com/Logitech-C920x-Pro-HD-Webcam/dp/B085TFF7M1">Logitech C920x</a></td>
+      <td>1080p x 30fps</td>
+      <td>USB - 2.5W</td>
+      <td>$70</td>
+      <td><Badge variant="orange">Video</Badge></td>
+      <td className="wrap">Driver POV</td>
+    </tr>
+    <tr>
+      <td>Driver Camera</td>
+      <td><a href="https://www.amazon.com/Logitech-C920x-Pro-HD-Webcam/dp/B085TFF7M1">Logitech C920x</a></td>
+      <td>1080p x 30fps</td>
+      <td>USB - 2.5W</td>
+      <td>$70</td>
+      <td><Badge variant="orange">Video</Badge></td>
+      <td className="wrap">Being able to see the shifting and pedal movements is cool</td>
+    </tr>
+    <tr>
+      <td>On Board Compute</td>
+      <td><a href="https://www.amazon.com/seeed-studio-reComputer-J4012-Edge-Pre-Installed/dp/B0C88V4CB7/">Jetson Orin NX</a></td>
+      <td>16GB RAM, NVENC Accelerator</td>
+      <td>12V/5A → 60W Max</td>
+      <td>$1150</td>
+      <td><Badge variant="purple">Compute</Badge></td>
+      <td className="wrap">We don't ever want video encoding to be the bottleneck, so we wanted a hardware encoding accelerator</td>
+    </tr>
+    <tr>
+      <td>5G Modem</td>
+      <td><a href="https://www.amazon.com/GL-iNet-GL-X3000-Multi-WAN-Detachable-WireGuard/dp/B0C5RCQ8N5">GL-X3000</a></td>
+      <td>5G Compatible, physical SIM</td>
+      <td>12V/2.5A → 30W Max</td>
+      <td>$323</td>
+      <td><Badge variant="green">Connectivity</Badge></td>
+      <td className="wrap">5G is likely overkill, but the bandwidth headroom is nice</td>
+    </tr>
+    <tr>
+      <td>SIM Card + Plan</td>
+      <td><a href="https://www.visible.com/plans">Visible+</a></td>
+      <td>Unlimited data</td>
+      <td>—</td>
+      <td>$45/mo</td>
+      <td><Badge variant="green">Connectivity</Badge></td>
+      <td className="wrap">Verizon generally works well at TH and Sonoma</td>
+    </tr>
+    <tr>
+      <td>GPS/Accel</td>
+      <td><a href="https://www.amazon.com/RACEBOX-Micro-25Hz-GPS-Accelerometer/dp/B0DF5PX5X9/">Racebox Micro</a></td>
+      <td>25Hz, &lt;1m accuracy</td>
+      <td>12V, 0.2W Max</td>
+      <td>$125</td>
+      <td><Badge variant="blue">Telemetry</Badge></td>
+      <td className="wrap">Also works standalone with your phone</td>
+    </tr>
+    <tr>
+      <td>Bluetooth Dongle</td>
+      <td><a href="https://www.amazon.com/dp/B0161B5ATM">UD100-G03</a></td>
+      <td>BLE</td>
+      <td>USB, 2.5W Max</td>
+      <td>$39</td>
+      <td><Badge variant="blue">Telemetry</Badge></td>
+      <td className="wrap">Jetson doesn't have built-in BT; Racebox relays over BLE</td>
+    </tr>
+    <tr>
+      <td>Microcontroller</td>
+      <td><a href="https://www.amazon.com/Arduino-ATmega2560-Compatible-Advanced-Projects/dp/B0046AMGW0/">Arduino Mega 2560</a></td>
+      <td>54 Digital IO, 16 Analog Inputs</td>
+      <td>USB, 1W Max</td>
+      <td>$49</td>
+      <td><Badge variant="blue">Telemetry</Badge></td>
+      <td className="wrap">Bit overkill — a smaller 5V Arduino would be plenty</td>
+    </tr>
+  </tbody>
+</DataTable>
+
+### Totals
+- Total cost: \~1850 for listed parts. **~$2000** when including random wires, resistors/diodes, butt joints, t splices, small wires, solder, perfboard, zipties, etc.
+- Total power: `~100W` max theoretical, in practice steady state power draw was likely closer to `20/30W maximum`
+
+## Telemetry Points
+
+<DataTable minWidth={700}>
+  <thead>
+    <tr>
+      <th>Telemetry Point</th>
+      <th>Sense Strategy</th>
+      <th>Signal Type</th>
+      <th>Arduino Pin</th>
+      <th className="wrap">Sense Line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Video 1</td>
+      <td>Camera</td>
+      <td><Badge variant="green">Digital</Badge></td>
+      <td>—</td>
+      <td className="wrap">—</td>
+    </tr>
+    <tr>
+      <td>Video 2</td>
+      <td>Camera</td>
+      <td><Badge variant="green">Digital</Badge></td>
+      <td>—</td>
+      <td className="wrap">—</td>
+    </tr>
+    <tr>
+      <td>Brake Indicator</td>
+      <td>Binary yes/no voltage</td>
+      <td><Badge variant="amber">12V divided down, 4.3X</Badge></td>
+      <td>A5</td>
+      <td className="wrap">White/Green Brake Light Line</td>
+    </tr>
+    <tr>
+      <td>Battery Voltage</td>
+      <td>Analog</td>
+      <td><Badge variant="amber">12V divided down, 4.3X</Badge></td>
+      <td>A6</td>
+      <td className="wrap">Tap off the PDB +12V bus</td>
+    </tr>
+    <tr>
+      <td>Throttle Position</td>
+      <td>Calibrate 0–100</td>
+      <td><Badge variant="orange">5V analog</Badge></td>
+      <td>A9</td>
+      <td className="wrap">D11 ECU D connector</td>
+    </tr>
+    <tr>
+      <td>Engine Coolant Temp (T/W)</td>
+      <td>Lookup table</td>
+      <td><Badge variant="orange">5V analog</Badge></td>
+      <td>A8</td>
+      <td className="wrap">D13 ECU D Connector</td>
+    </tr>
+    <tr>
+      <td>MAP</td>
+      <td>Lookup table</td>
+      <td><Badge variant="orange">5V analog</Badge></td>
+      <td>A10</td>
+      <td className="wrap">D13 ECU D Connector</td>
+    </tr>
+    <tr>
+      <td>RPM (Tach)</td>
+      <td>Derive instantaneous pulses/sec</td>
+      <td><Badge variant="blue">12V square wave → 5V</Badge></td>
+      <td>D19</td>
+      <td className="wrap">A7 BLU Dash Connector</td>
+    </tr>
+    <tr>
+      <td>VSS</td>
+      <td>Derive instantaneous pulses/sec</td>
+      <td><Badge variant="blue">12V square wave → 5V</Badge></td>
+      <td>D18</td>
+      <td className="wrap">B10 ECU B Connector</td>
+    </tr>
+    <tr>
+      <td>GPS</td>
+      <td>Racebox</td>
+      <td><Badge variant="green">Digital</Badge></td>
+      <td>—</td>
+      <td className="wrap">—</td>
+    </tr>
+    <tr>
+      <td>Accel</td>
+      <td>Racebox</td>
+      <td><Badge variant="green">Digital</Badge></td>
+      <td>—</td>
+      <td className="wrap">—</td>
+    </tr>
+    <tr>
+      <td>Gyro</td>
+      <td>Racebox</td>
+      <td><Badge variant="green">Digital</Badge></td>
+      <td>—</td>
+      <td className="wrap">—</td>
+    </tr>
+  </tbody>
+</DataTable>
+
+## Telemetry System Design
+
+<Figure src="/images/500-telemetry-block-diagram.jpg" caption="Telemetry Block Diagram" />
+
+### Design Considerations
+We had considered a Starlink Mini as vehicle data offload but decided against this because I was unsure if we would be in a garage. The line-of-sight requirements are tough.
+
+We has also considered running the stream on the vehicle, but this would have been very rough as the stream would have died if the telemetry computer restarted. So keeping that separate was a great choice.
+
+## Power
+
+<Figure src="/images/501-onboard-power-diagram.png" caption="Onboard Power Diagram" />
+
+### Power Considerations
+
+I had considered adding another secondary battery onboard, but descoped it at the time to make deadlines.
+
+At the race, we noticed two significant downsides:
+- You can deplete the vehicle battery while running telemetry which means we had to repeatedly hook up a battery charger while running telem only
+- Cranking the starter brings the `+12V rail below +10V` which browns out the computers. This meant stalling the car and restarting the car would necessitate a power cycle, very annoying.
+
+For the next iteration we plan to add a small auxiliary battery with:
+- a relay that switches off if the kill switch is switched to cut power to telemetry
+- diodes that prevent auxiliary battery from flowing to the `main electrical bus`
+
+## Driver Communication
+
+We ran driver communication completely parallel to telemtry. We would communicate with drivers via `discord` audio call. This meant that if the `telemetry` stack restarted, our `audio` communications persisted. This was very useful during `hotpits` when we shut off telemetry, or if we ever had to crank the starter on track.
