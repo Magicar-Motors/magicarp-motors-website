@@ -1,4 +1,5 @@
 import { Head } from "vite-react-ssg"
+import Carousel from "../components/Carousel"
 import Nav from "../components/Nav"
 
 /**
@@ -54,6 +55,28 @@ export default function Home() {
           <p className="landing-caption">
             The accord on track -- (replace with the collage?)
           </p>
+        </div>
+
+        {/* Carousel requirements:
+            - 3 photos visible at a time
+            - No cropping — vertical stays vertical, horizontal stays horizontal
+            - Not auto-rotating; user advances with left/right arrows
+            - Uses the 700-series glamor photos
+        */}
+        <div className="landing-section landing-section--w62">
+          <Carousel
+            images={[
+              // { src: "/images/705-magicar-skyline-horizontal.jpg", alt: "Magicar against the skyline" },
+              { src: "/images/700-magicar-vertical-downthe-road.jpg", alt: "Magicar driving down the road" },
+              { src: "/images/707-magicar-front-emblem-vertical.jpg", alt: "Magicar front emblem" },
+              { src: "/images/706-magicar-rear-tailpipe-vertical.jpg", alt: "Magicar rear tailpipe" },
+              { src: "/images/701-magicar-vertical-from-afar.jpg", alt: "Magicar from afar" },
+              { src: "/images/703-magicar-smirk-top-of-mountain-vertical.jpg", alt: "Magicar at the top of the mountain" },
+              { src: "/images/704-spoiler-magicar-closeup-vertical.jpg", alt: "Magicar spoiler closeup" },
+              { src: "/images/702-magicar-in-the-cab-scao.jpg", alt: "View from the cab" },
+            ]}
+          />
+          <p className="landing-caption">Gearados, our 1992 Honda Accord</p>
         </div>
 
         <div className="landing-section landing-section--w55">
