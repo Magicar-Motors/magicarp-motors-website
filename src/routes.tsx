@@ -7,7 +7,9 @@ import NotFound from "./pages/not-found"
 
 import AboutTheTeam, { frontmatter as aboutFm } from "./pages/about-the-team.mdx"
 import MeetTheTeam, { frontmatter as meetFm } from "./pages/meet-the-team.mdx"
-import Sponsorship, { frontmatter as sponsorshipFm } from "./pages/sponsorship.mdx"
+import GettingInvolved, {
+  frontmatter as gettingInvolvedFm,
+} from "./pages/getting-involved.mdx"
 
 import Blogs, { frontmatter as blogsFm } from "./pages/blogs/index.mdx"
 import Telemetry, { frontmatter as telemetryFm } from "./pages/blogs/telemetry.mdx"
@@ -31,7 +33,10 @@ export const routes: RouteRecord[] = [
   { path: "/", element: <Home /> },
   { path: "/about-the-team", element: page(aboutFm, <AboutTheTeam />) },
   { path: "/meet-the-team", element: page(meetFm, <MeetTheTeam />) },
-  { path: "/sponsorship", element: page(sponsorshipFm, <Sponsorship />) },
+  {
+    path: "/getting-involved",
+    element: page(gettingInvolvedFm, <GettingInvolved />),
+  },
   { path: "/blogs", element: page(blogsFm, <Blogs />) },
   { path: "/blogs/telemetry", element: page(telemetryFm, <Telemetry />) },
   { path: "/blogs/race-day", element: page(raceDayFm, <RaceDay />) },
