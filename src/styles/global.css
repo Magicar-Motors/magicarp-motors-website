@@ -731,3 +731,63 @@ img {
     align-self: flex-end;
   }
 }
+
+/* ===== Team grid (Meet the Team page) ===== */
+/* Breaks out of the narrow prose column (var(--contentWidth)) so cards get more room. */
+.team-grid-breakout {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.team-grid {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2.5rem 1.5rem;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-card__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--lightgray);
+  background-color: var(--lightgray);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.team-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  margin: 0;
+}
+
+.team-card:hover .team-card__photo {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(21, 34, 56, 0.12);
+  border-color: var(--gray);
+}
+
+.team-card__name {
+  margin-top: 0.85rem;
+  font-family: var(--headerFont);
+  font-weight: var(--semiBoldWeight);
+  color: var(--brand-navy);
+  font-size: 1.05rem;
+}

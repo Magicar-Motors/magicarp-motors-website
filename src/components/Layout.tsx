@@ -7,6 +7,7 @@ import PhotoSingle from "./PhotoSingle"
 import Figure from "./Figure"
 import Badge from "./Badge"
 import DataTable from "./DataTable"
+import TeamGrid from "./TeamGrid"
 
 // Components made available to every MDX page without an explicit import.
 const mdxComponents = {
@@ -15,6 +16,7 @@ const mdxComponents = {
   Figure,
   Badge,
   DataTable,
+  TeamGrid,
 }
 
 interface LayoutProps {
