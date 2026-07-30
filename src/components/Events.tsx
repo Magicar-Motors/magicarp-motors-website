@@ -29,7 +29,7 @@ export default function Events() {
       <main className="events-page-container">
         <header className="events-header">
           <h1>2026 events</h1>
-          <p>Here's where you can find us this year'!</p>
+          <p>Here's where you can find us this year!</p>
         </header>
 
         <div className="events-list">
