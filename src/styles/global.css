@@ -75,6 +75,7 @@ p {
 a {
   color: var(--secondary);
   text-decoration: none;
+  overflow-wrap: break-word;
 }
 
 a:hover {
