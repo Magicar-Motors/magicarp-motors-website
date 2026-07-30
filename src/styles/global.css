@@ -625,3 +625,109 @@ img {
   height: auto;
   object-fit: contain;
 }
+
+/* Page wrapper to keep content constrained with nice margins */
+.events-page-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.events-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.events-header h1 {
+  font-family: var(--headerFont);
+  font-size: 2.5rem;
+  color: var(--brand-navy);
+  margin-bottom: 0.5rem;
+}
+
+.events-header p {
+  color: var(--darkgray);
+  font-size: 1.1rem;
+}
+
+/* Custom modern row layout instead of a stark table grid */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.event-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rem;
+  background-color: #ffffff;
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(21, 34, 56, 0.06);
+  border-color: var(--gray);
+}
+
+.event-date {
+  font-weight: var(--boldWeight);
+  color: var(--brand-navy);
+  min-width: 140px;
+  font-size: 1.05rem;
+}
+
+.event-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.event-name {
+  font-family: var(--headerFont);
+  font-weight: var(--semiBoldWeight);
+  font-size: 1.1rem;
+  color: var(--brand-navy);
+}
+
+.event-location {
+  color: var(--darkgray);
+  font-size: 0.95rem;
+}
+
+.event-action {
+  white-space: nowrap;
+}
+
+.event-link {
+  font-weight: var(--semiBoldWeight);
+  color: var(--secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.event-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Responsive collapse for smaller screens */
+@media (max-width: 700px) {
+  .event-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .event-action {
+    align-self: flex-end;
+  }
+}

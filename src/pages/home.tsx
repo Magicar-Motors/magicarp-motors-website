@@ -1,7 +1,7 @@
 import { Head } from "vite-react-ssg"
 import Carousel from "../components/Carousel"
 import Nav from "../components/Nav"
-
+import Events from "../components/Events"
 /**
  * Photo landing page — ported 1:1 from the old content/index.md.
  * Uses the .landing-* classes defined in global.css.
@@ -124,7 +124,11 @@ export default function Home() {
             replace this photo with more family vibe photos
           </p>
         </div> */}
+
+        {/* Rendered modular events section */}
+        <Events />
       </div>
+
 
       <h1 className="visually-hidden">Magicar Motors — Racing Team</h1>
     </>
