@@ -1,4 +1,5 @@
 import { Head } from "vite-react-ssg"
+import { Link } from "react-router-dom"
 import Carousel from "../components/Carousel"
 import Nav from "../components/Nav"
 import Events from "../components/Events"
@@ -57,7 +58,8 @@ export default function Home() {
               And that's what we've got! We're a group of friends who spend our weekends wrenching on the car and hanging out with the community. We're currently in our 5th season of running, and we're busy preparing for our next race in September at the Buttonwillow Raceway.
             </p>
             <p>
-              The community we're part of is the backbone and heart of the team. We always love seeing friends old and new at our events and at the garage. Read some more about who we are and what we do on this website, or take a look at what we're up to next!
+              The community we're part of is the backbone and heart of the team. We always love seeing friends old and new at our events and at the garage. Read some more about who we are and what we do on this website, take a look at what we're up to next, or{" "}
+              <Link to="/follow-us">follow us for updates</Link>!
             </p>
             {/* Centered placeholder image underneath the text */}
             {/* <div className="landing-centered-logo-container">
