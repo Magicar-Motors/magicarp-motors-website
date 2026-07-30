@@ -26,7 +26,7 @@ export default function Home() {
             }
           >
             <img
-              src="/images/303-painting-sidewalk.jpg"
+              src="/images/home/gearados.png"
               alt="Team members painting the car livery on a sidewalk"
             />
           </div>

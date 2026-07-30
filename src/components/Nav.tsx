@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom"
 
 const links = [
-  { href: "/about-the-team", label: "About the Team" },
-  { href: "/meet-the-team", label: "Meet the Team" },
-  { href: "/sponsorship", label: "Sponsorship" },
-  { href: "/blogs", label: "Blogs" },
+  { href: "/about-the-team", label: "ABOUT" },
+  { href: "/meet-the-team", label: "MEET THE TEAM" },
+  { href: "/sponsorship", label: "SPONSORSHIP" },
+  { href: "/blogs", label: "BLOGS" },
 ]
 
 export default function Nav() {
   return (
     <nav className="landing-nav">
       <Link to="/" className="landing-nav-logo">
-        Magicar Motors
+        <img src="/images/home/logo.png" alt="Magicar Motors Logo" />
       </Link>
       <input
         type="checkbox"
@@ -30,7 +30,7 @@ export default function Nav() {
       <ul className="landing-nav-links">
         {links.map((l) => (
           <li key={l.href}>
-            <Link to={l.href}>{l.label}</Link>
+            <Link to={l.href} className="landing-nav-btn">{l.label}</Link>
           </li>
         ))}
       </ul>
