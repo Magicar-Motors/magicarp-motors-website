@@ -592,3 +592,36 @@ img {
   flex: 1;
   min-width: 300px;
 }
+
+/* Layout container for heading + small logo graphic */
+.landing-heading-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.landing-heading-wrapper h2 {
+  margin: 0;
+}
+
+/* Small graphic/logo next to the title (matches your reference screenshot) */
+.landing-inline-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Container to perfectly center the logo underneath the text block */
+.landing-centered-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.landing-centered-logo {
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}

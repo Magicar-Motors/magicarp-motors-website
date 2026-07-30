@@ -11,7 +11,7 @@ export default function Nav() {
   return (
     <nav className="landing-nav">
       <Link to="/" className="landing-nav-logo">
-        <img src="/images/home/logo.png" alt="Magicar Motors Logo" />
+        <img src="/images/home/magicar-squiggle.svg" alt="Magicar Motors Logo" />
       </Link>
       <input
         type="checkbox"

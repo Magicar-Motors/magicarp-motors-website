@@ -40,7 +40,16 @@ export default function Home() {
             </div>
           </div>
           <div className="landing-split-content">
-            <h2>Hi, we're Magicar Motors!</h2>
+          <div className="landing-heading-wrapper">
+              <h2 className="landing-inline-title">
+                Hi, we're{" "}
+                <img
+                  src="/images/home/logo-inline.png"
+                  alt="Magicar Motors Logo"
+                  className="landing-inline-logo"
+                />
+              </h2>
+            </div>
             <p>
               We're an endurance racing team based in San Francisco. We compete in 24 Hours of Lemons, an endurance racing series for $500 cars. As the folks there say -- 'All it takes is a cheap car, cool friends, and one weekend'
             </p>
@@ -50,6 +59,14 @@ export default function Home() {
             <p>
               The community we're part of is the backbone and heart of the team. We always love seeing friends old and new at our events and at the garage. Read some more about who we are and what we do on this website, or take a look at what we're up to next!
             </p>
+            {/* Centered placeholder image underneath the text */}
+            {/* <div className="landing-centered-logo-container">
+              <img
+                src="/images/home/magicar-squiggle.svg"
+                alt="Centered brand placeholder"
+                className="landing-centered-logo"
+              />
+            </div> */}
           </div>
         </div>
 
