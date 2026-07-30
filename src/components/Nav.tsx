@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 const links = [
   { href: "/about-the-team", label: "About the Team" },
   { href: "/meet-the-team", label: "Meet the Team" },
-  { href: "/community", label: "Community" },
   { href: "/sponsorship", label: "Sponsorship" },
   { href: "/blogs", label: "Blogs" },
 ]
