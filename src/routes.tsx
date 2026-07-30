@@ -10,6 +10,7 @@ import MeetTheTeam, { frontmatter as meetFm } from "./pages/meet-the-team.mdx"
 import GettingInvolved, {
   frontmatter as gettingInvolvedFm,
 } from "./pages/getting-involved.mdx"
+import FollowUs, { frontmatter as followUsFm } from "./pages/follow-us.mdx"
 
 import Blogs, { frontmatter as blogsFm } from "./pages/blogs/index.mdx"
 import Telemetry, { frontmatter as telemetryFm } from "./pages/blogs/telemetry.mdx"
@@ -37,6 +38,7 @@ export const routes: RouteRecord[] = [
     path: "/getting-involved",
     element: page(gettingInvolvedFm, <GettingInvolved />),
   },
+  { path: "/follow-us", element: page(followUsFm, <FollowUs />) },
   { path: "/blogs", element: page(blogsFm, <Blogs />) },
   { path: "/blogs/telemetry", element: page(telemetryFm, <Telemetry />) },
   { path: "/blogs/race-day", element: page(raceDayFm, <RaceDay />) },
