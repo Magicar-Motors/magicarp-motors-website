@@ -6,6 +6,10 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 A [Quartz 4](https://quartz.jzhao.xyz/) static site for the Magicar Motors racing team. Content lives in `content/` as Markdown files; the Quartz framework (in `quartz/`) handles build, theming, and plugins. The deployed site is a knowledge-base / race-log for the team.
 
+## Multiple Agents Coordination
+Multiple friends are working on this repo at any given time on `staging` or `main`, when conflicting or having work on upstream, rebase intelligently to preserve their work.
+If it is unclear, consult the user for input!
+
 ## Commands
 
 ```bash
