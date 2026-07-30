@@ -10,6 +10,12 @@ A [Quartz 4](https://quartz.jzhao.xyz/) static site for the Magicar Motors racin
 Multiple friends are working on this repo at any given time on `staging` or `main`, when conflicting or having work on upstream, rebase intelligently to preserve their work.
 If it is unclear, consult the user for input!
 
+## Deployment
+Deployment is automatic configured through vercel on both `main` and `staging`. Just push to the respective branches and it will be so.
+
+## Archive
+On `2026.07.29` we moved to the new website. The old quartz content is saved on the branch `archive/quartz`.
+
 ## Commands
 
 ```bash
