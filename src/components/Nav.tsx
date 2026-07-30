@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 
 const links = [
   { href: "/about-the-team", label: "ABOUT" },
@@ -8,6 +9,16 @@ const links = [
 ]
 
 export default function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  // React Router keeps this component mounted across navigations, so the
+  // menu must be closed explicitly on route change rather than relying on
+  // a remount to reset it.
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
   return (
     <nav className="landing-nav">
       <Link to="/" className="landing-nav-logo">
@@ -17,6 +28,8 @@ export default function Nav() {
         type="checkbox"
         id="landing-nav-toggle"
         className="landing-nav-toggle-checkbox"
+        checked={menuOpen}
+        onChange={(e) => setMenuOpen(e.target.checked)}
       />
       <label
         htmlFor="landing-nav-toggle"
