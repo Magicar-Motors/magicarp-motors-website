@@ -706,7 +706,7 @@ img {
 
 .event-link {
   font-weight: var(--semiBoldWeight);
-  color: var(--secondary);
+  color: var(--brand-blue);
   text-decoration: none;
   display: inline-flex;
   align-items: center;

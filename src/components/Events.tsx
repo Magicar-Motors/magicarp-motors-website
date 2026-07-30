@@ -25,9 +25,6 @@ const eventsList = [
 export default function Events() {
   return (
     <>
-      <Head>
-        <title>2026 Events — Magicar Motors</title>
-      </Head>
 
       <main className="events-page-container">
         <header className="events-header">
