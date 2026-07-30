@@ -14,28 +14,46 @@ export default function Home() {
       </Head>
       <Nav />
 
+      {/* Full-width edge-to-edge banner */}
+      <div className="landing-full-banner">
+        <img
+          src="/images/home/gearados.png"
+          alt="Team members painting the car livery on a sidewalk"
+        />
+      </div>
+
       <div className="landing-stack">
-        <div className="landing-section landing-section--w62">
-          <div
-            className="landing-photo landing-photo--crop"
-            style={
-              {
-                "--crop-top": 20,
-                "--crop-bottom": 10,
-              } as React.CSSProperties
-            }
-          >
-            <img
-              src="/images/home/gearados.png"
-              alt="Team members painting the car livery on a sidewalk"
-            />
+        {/* Split layout: Two horizontal photos on the left, text on the right */}
+        <div className="landing-split-section">
+          <div className="landing-split-images">
+            <div className="landing-photo">
+              <img
+                src="/images/103-race-result-sears-pointless.JPG"
+                alt="Placeholder horizontal photo 1"
+              />
+            </div>
+            <div className="landing-photo">
+              <img
+                 src="/images/team-photo-2.jpg"
+                alt="Placeholder horizontal photo 2"
+              />
+            </div>
           </div>
-          <p className="landing-caption">
-            We're a bunch of friends building race cars after work.
-          </p>
+          <div className="landing-split-content">
+            <h2>Hi, we're Magicar Motors!</h2>
+            <p>
+              We're an endurance racing team based in San Francisco. We compete in 24 Hours of Lemons, an endurance racing series for $500 cars. As the folks there say -- 'All it takes is a cheap car, cool friends, and one weekend'
+            </p>
+            <p>
+              And that's what we've got! We're a group of friends who spend our weekends wrenching on the car and hanging out with the community. We're currently in our 5th season of running, and we're busy preparing for our next race in September at the Buttonwillow Raceway.
+            </p>
+            <p>
+              The community we're part of is the backbone and heart of the team. We always love seeing friends old and new at our events and at the garage. Read some more about who we are and what we do on this website, or take a look at what we're up to next!
+            </p>
+          </div>
         </div>
 
-        <div className="landing-section landing-section--w58">
+        {/* <div className="landing-section landing-section--w58">
           <div className="landing-photo">
             <img
               src="/images/103-race-result-sears-pointless.JPG"
@@ -43,9 +61,9 @@ export default function Home() {
             />
           </div>
           <p className="landing-caption">We're a big silly happy family.</p>
-        </div>
+        </div> */}
 
-        <div className="landing-section landing-section--w70">
+        {/* <div className="landing-section landing-section--w70">
           <div className="landing-photo">
             <img
               src="/images/202-accord-track.jpeg"
@@ -55,18 +73,17 @@ export default function Home() {
           <p className="landing-caption">
             The accord on track -- (replace with the collage?)
           </p>
-        </div>
+        </div> */}
 
-        {/* Carousel requirements:
+          {/* Carousel requirements:
             - 3 photos visible at a time
             - No cropping — vertical stays vertical, horizontal stays horizontal
             - Not auto-rotating; user advances with left/right arrows
             - Uses the 700-series glamor photos
         */}
-        <div className="landing-section landing-section--w62">
+        {/* <div className="landing-section landing-section--w62">
           <Carousel
             images={[
-              // { src: "/images/705-magicar-skyline-horizontal.jpg", alt: "Magicar against the skyline" },
               { src: "/images/700-magicar-vertical-downthe-road.jpg", alt: "Magicar driving down the road" },
               { src: "/images/707-magicar-front-emblem-vertical.jpg", alt: "Magicar front emblem" },
               { src: "/images/706-magicar-rear-tailpipe-vertical.jpg", alt: "Magicar rear tailpipe" },
@@ -77,9 +94,9 @@ export default function Home() {
             ]}
           />
           <p className="landing-caption">Gearados, our 1992 Honda Accord</p>
-        </div>
+        </div> */}
 
-        <div className="landing-section landing-section--w55">
+        {/* <div className="landing-section landing-section--w55">
           <div className="landing-photo">
             <img
               src="/images/team-photo-2.jpg"
@@ -89,7 +106,7 @@ export default function Home() {
           <p className="landing-caption">
             replace this photo with more family vibe photos
           </p>
-        </div>
+        </div> */}
       </div>
 
       <h1 className="visually-hidden">Magicar Motors — Racing Team</h1>

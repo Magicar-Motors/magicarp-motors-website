@@ -9,6 +9,8 @@
   --tertiary: #84a59d;
   --highlight: rgba(143, 159, 169, 0.15);
   --textHighlight: #fff23688;
+  --brand-navy: #152238; /* Extracted exact match from your color image */
+  --brand-blue: #0043ff; /* Keeping your previous blue variable just in case */
 
   --headerFont: "Schibsted Grotesk", sans-serif;
   --bodyFont: "Source Sans Pro", sans-serif;
@@ -35,7 +37,7 @@ html {
 body {
   margin: 0;
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--brand-navy);
   font-family: var(--bodyFont);
   font-size: 1rem;
   line-height: 1.6;
@@ -49,7 +51,7 @@ h5,
 h6 {
   font-family: var(--headerFont);
   font-weight: var(--boldWeight);
-  color: var(--dark);
+  color: var(--brand-navy);
   line-height: 1.25;
   margin: 2rem 0 1rem;
 }
@@ -152,7 +154,7 @@ img {
 }
 
 .landing-nav-links a {
-  color: var(--darkgray);
+  color: var(--brand-navy);
   font-weight: var(--normalWeight);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -244,7 +246,6 @@ img {
 }
 
 .landing-photo {
-  border-radius: 1.25rem;
   overflow: hidden;
 }
 
@@ -277,7 +278,7 @@ img {
 
 .landing-caption {
   margin: 1.5rem 0 0;
-  color: var(--darkgray);
+  color: var(--brand-navy);
   font-size: 1.1rem;
   line-height: 1.6;
   text-align: center;
@@ -400,8 +401,8 @@ img {
   justify-content: center;
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--darkgray);
   padding: 0 0.25rem;
+  color: var(--brand-navy);
 }
 
 .photo-single {
@@ -418,7 +419,7 @@ img {
 .photo-caption-single {
   text-align: center;
   font-style: italic;
-  color: var(--darkgray);
+  color: var(--brand-navy);
   margin-top: 0.25rem;
 }
 
@@ -440,7 +441,7 @@ img {
 .figure__caption {
   text-align: center;
   font-style: italic;
-  color: var(--darkgray);
+  color: var(--brand-navy);
   margin-top: 0.25rem;
 }
 
@@ -494,7 +495,7 @@ img {
 .blog-list a {
   display: block;
   padding: 0.9rem 0.25rem;
-  color: var(--dark);
+  color: var(--brand-navy);
   font-family: var(--headerFont);
   font-weight: var(--semiBoldWeight);
 }
@@ -528,19 +529,66 @@ img {
 
 /* Style for the nav links to look like organic blue buttons */
 .landing-nav-btn {
-  background-color: var(--brand-blue);
-  color: #ffffff !important; /* Forces the text to stay white */
-  padding: 10px 20px;
+  background-color: transparent !important;
+  color: var(--brand-navy) !important;
+  padding: 10px;
   text-decoration: none;
-  font-weight: 500;
-  display: inline-block;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  font-weight: 800;
+  border-radius: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Also ensure hover states don't override the color */
 .landing-nav-btn:hover {
-  color: #ffffff !important;
-  opacity: 0.9;
-  transform: scale(1.02);
+  background-color: transparent !important;
+  color: var(--brand-navy) !important;
+  opacity: 0.7;
+  transform: none;
+}
+
+/* Full-bleed banner styles */
+.landing-full-banner {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  /* margin-bottom: 3rem; */
+}
+
+.landing-full-banner img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  display: block;
+}
+
+.landing-banner-caption {
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+/* Two-photo split section layout */
+.landing-split-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.landing-split-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 300px;
+}
+
+.landing-split-content {
+  flex: 1;
+  min-width: 300px;
 }
