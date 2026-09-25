@@ -15,6 +15,14 @@ export default function Home() {
       </Head>
       <Nav />
 
+      <a className="landing-live-banner" href="/live">
+        <span className="landing-live-banner__eyebrow">MAGICAR MOTORS ON YOUTUBE</span>
+        <span className="landing-live-banner__title">Catch our latest race livestream</span>
+        <span className="landing-live-banner__cta">
+          Watch on YouTube <span aria-hidden="true">↗</span>
+        </span>
+      </a>
+
       {/* Full-width edge-to-edge banner */}
       <div className="landing-full-banner">
         <img
