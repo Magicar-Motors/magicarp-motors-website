@@ -546,6 +546,71 @@ img {
   transform: none;
 }
 
+/* Homepage link to the channel's current or latest livestream. */
+.landing-live-banner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.15rem 2rem;
+  padding: 1rem clamp(1.25rem, 6vw, 5rem);
+  color: #fff;
+  background: var(--brand-navy);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.landing-live-banner:hover {
+  color: #fff;
+  background: #203653;
+  text-decoration: none;
+}
+
+.landing-live-banner__eyebrow {
+  grid-column: 1;
+  color: #f6b44b;
+  font-family: var(--codeFont);
+  font-size: 0.7rem;
+  font-weight: var(--boldWeight);
+  letter-spacing: 0.12em;
+}
+
+.landing-live-banner__title {
+  grid-column: 1;
+  font-family: var(--headerFont);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: var(--boldWeight);
+  line-height: 1.3;
+}
+
+.landing-live-banner__cta {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  white-space: nowrap;
+  font-family: var(--headerFont);
+  font-size: 0.95rem;
+  font-weight: var(--semiBoldWeight);
+}
+
+.landing-live-banner__cta span {
+  margin-left: 0.35rem;
+  color: #f6b44b;
+}
+
+@media all and (max-width: 560px) {
+  .landing-live-banner {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .landing-live-banner__cta {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+  }
+}
+
 /* Full-bleed banner styles */
 .landing-full-banner {
   width: 100vw;
